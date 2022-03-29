@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BachKhoaTech - IOT & Webserver</title>
+  <link rel="stylesheet" href="./styling/index.css">
+  <link rel="stylesheet" href="./styling/bootstrap.css">
+  <!-- Import Vue -->
+  <script src="./js/vue3.js"></script>
+  <!-- Import Axios -->
+  <script src="./js/axios.js"></script>
+</head>
+<body>
+  <div id="app">
+    <nav id='navbar' class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <div class="logo-wrap">
+          <h1 id="logo" class="text-logo" itemprop="headline">
+            <a href="https://bachkhoa.org">Bach khoa tech</a>
+          </h1>
+          </div>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0"> 
+          <template v-if="location === '/bachkhoatech/' ">
+            <li class="nav-item" v-for='item in home' :key="item.path">
+            <a :href=item.path  class="nav-link">{{ item.name }}</a>
+            </li>
+          </template>
+          <template v-else>
+            <li class="nav-item" v-for='item in other' :key="item.path">
+            <a :href=item.path  class="nav-link">{{ item.name }}</a>
+            </li>
+          </template>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" :placeholder=search  aria-label="Search">
+            <button class="btn btn-outline-success w-50" type="submit">{{ search }}</button>
+          </form>
+          &nbsp;
+          <form class="mzp-c-language-switcher " method="get"
+          action="#">
+       <label
+        for="mzp-c-language-switcher-select">{{ lang }}</label> &nbsp;
+       <select id="mzp-c-language-switcher-select"
+        class="mzp-js-language-switcher-select" name="lang" @change="changeLanguage($event)">
+         <option value="en-US">English (US)</option>
+         <option value="vi">Tiếng Việt</option>
+         <option value="ko">한국어</option>
+       </select>
+       </form>
+        </div>
+      </div>
+    </nav>
+    <div id="vue-data"></div> 
+    <footercomponent :items=contents></footercomponent>
+  </div>
+  <script src="./js/bootstrap.js" defer></script>
+  <script src="./js/chart.js" defer></script>
+  <script src="./js/components.js" defer></script>
+  <script src="./js/data.js" defer></script>
+</body>
+</html>

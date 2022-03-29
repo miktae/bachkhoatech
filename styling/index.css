@@ -1,0 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+header h1, #header h2 {
+    display: inline-block;
+    font-weight: normal;
+    line-height: 1;
+    position: relative;
+    margin-bottom: 0;
+}
+#logo a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+  line-height: 1;
+}
+
+table{
+  width: 80%!important;
+}
+footer {
+    background: #222;
+    color: #aaa;
+    padding-top: 7px;
+    margin-bottom: 0;
+  }
